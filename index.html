@@ -3,125 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electric Vehicle Showcase</title>
+    <title>EV Brand - Drive the Future</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        .parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+        .draggable { cursor: grab; user-select: none; }
+        .model-card:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans antialiased">
     <!-- Navigation -->
-    <nav class="bg-white shadow-md p-4">
+    <nav class="bg-white shadow-md p-4 fixed w-full z-10">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold">EV Brand</div>
+            <div class="text-2xl font-bold text-blue-600">EV Brand</div>
             <ul class="flex space-x-6">
-                <li><a href="#home" class="text-gray-700 hover:text-blue-600">Home</a></li>
-                <li><a href="#models" class="text-gray-700 hover:text-blue-600">All Models</a></li>
-                <li><a href="#technology" class="text-gray-700 hover:text-blue-600">Core Technology</a></li>
-                <li><a href="#factory" class="text-gray-700 hover:text-blue-600">Factory</a></li>
-                <li><a href="#stores" class="text-gray-700 hover:text-blue-600">Stores</a></li>
-                <li><a href="#services" class="text-gray-700 hover:text-blue-600">Services</a></li>
+                <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a></li>
+                <li><a href="#models" class="text-gray-700 hover:text-blue-600 transition-colors">All Models</a></li>
+                <li><a href="#technology" class="text-gray-700 hover:text-blue-600 transition-colors">Core Technology</a></li>
+                <li><a href="#factory" class="text-gray-700 hover:text-blue-600 transition-colors">Factory</a></li>
+                <li><a href="#stores" class="text-gray-700 hover:text-blue-600 transition-colors">Stores</a></li>
+                <li><a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative bg-cover bg-center h-screen" style="background-image: url('https://via.placeholder.com/1920x1080')">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div class="text-center text-white">
-                <h1 class="text-5xl font-bold mb-4">Drive the Future</h1>
-                <p class="text-xl mb-6">Experience cutting-edge electric vehicles.</p>
-                <a href="#models" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Explore Models</a>
+    <!-- Hero Section with Parallax -->
+    <section id="home" class="relative parallax h-screen" style="background-image: url('https://via.placeholder.com/1920x1080?text=EV+Hero')">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center fade-in">
+            <div class="text-center text-white px-4">
+                <h1 class="text-6xl font-extrabold mb-4 tracking-tight">Drive the Future</h1>
+                <p class="text-2xl mb-8">Experience cutting-edge electric vehicles.</p>
+                <a href="#models" class="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-all shadow-lg">Explore Models</a>
             </div>
         </div>
     </section>
 
-    <!-- Models Section -->
-    <section id="models" class="py-16">
+    <!-- Models Section with Hover and Draggable -->
+    <section id="models" class="py-20 bg-white">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Models</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="Model YU7" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold">Model YU7</h3>
-                        <p class="text-gray-600 mt-2">Ride with elegance and power.</p>
-                        <a href="#" class="text-blue-600 hover:underline mt-4 inline-block">Learn More</a>
+            <h2 class="text-4xl font-bold text-center mb-16 fade-in">Our Models</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 rounded-xl shadow-xl overflow-hidden model-card">
+                    <img src="https://via.placeholder.com/600x400?text=Model+YU7" alt="Model YU7" class="w-full h-72 object-cover draggable">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-semibold mb-2">Model YU7</h3>
+                        <p class="text-gray-600 mb-4">Ride with elegance and power.</p>
+                        <a href="#" class="text-blue-600 hover:underline font-medium">Learn More</a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="Model SU7 Ultra" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold">Model SU7 Ultra</h3>
-                        <p class="text-gray-600 mt-2">Unleash unmatched performance.</p>
-                        <a href="#" class="text-blue-600 hover:underline mt-4 inline-block">Learn More</a>
+                <div class="bg-gray-50 rounded-xl shadow-xl overflow-hidden model-card">
+                    <img src="https://via.placeholder.com/600x400?text=Model+SU7+Ultra" alt="Model SU7 Ultra" class="w-full h-72 object-cover draggable">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-semibold mb-2">Model SU7 Ultra</h3>
+                        <p class="text-gray-600 mb-4">Unleash unmatched performance.</p>
+                        <a href="#" class="text-blue-600 hover:underline font-medium">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section id="technology" class="py-16 bg-gray-200">
+    <!-- Technology Section with Grid Animations -->
+    <section id="technology" class="py-20 bg-gray-50">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Core Technology</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <h4 class="text-xl font-semibold">800V High-Voltage Platform</h4>
-                    <p class="text-gray-600 mt-2">Next-gen power efficiency.</p>
+            <h2 class="text-4xl font-bold text-center mb-16 fade-in">Core Technology</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                    <h4 class="text-2xl font-semibold mb-2">800V High-Voltage Platform</h4>
+                    <p class="text-gray-600">Next-gen power efficiency.</p>
                 </div>
-                <div class="text-center">
-                    <h4 class="text-xl font-semibold">Super Motor</h4>
-                    <p class="text-gray-600 mt-2">Unprecedented acceleration.</p>
+                <div class="text-center fade-in" style="animation-delay: 0.4s;">
+                    <h4 class="text-2xl font-semibold mb-2">Super Motor</h4>
+                    <p class="text-gray-600">Unprecedented acceleration.</p>
                 </div>
-                <div class="text-center">
-                    <h4 class="text-xl font-semibold">Smart Cockpit</h4>
-                    <p class="text-gray-600 mt-2">Intelligent driving experience.</p>
+                <div class="text-center fade-in" style="animation-delay: 0.6s;">
+                    <h4 class="text-2xl font-semibold mb-2">Smart Cockpit</h4>
+                    <p class="text-gray-600">Intelligent driving experience.</p>
                 </div>
-                <div class="text-center">
-                    <h4 class="text-xl font-semibold">Assisted Driving</h4>
-                    <p class="text-gray-600 mt-2">Advanced safety and autonomy.</p>
+                <div class="text-center fade-in" style="animation-delay: 0.8s;">
+                    <h4 class="text-2xl font-semibold mb-2">Assisted Driving</h4>
+                    <p class="text-gray-600">Advanced safety and autonomy.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Factory Section -->
-    <section id="factory" class="py-16">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Factory</h2>
-            <p class="text-center text-gray-600 max-w-2xl mx-auto">Digital-driven advanced manufacturing ensures high-quality production and delivery.</p>
-            <div class="mt-8 text-center">
-                <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Learn More</a>
-            </div>
+    <section id="factory" class="py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16 fade-in">Our Factory</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto mb-8">Digital-driven advanced manufacturing ensures high-quality production and delivery.</p>
+            <a href="#" class="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-all shadow-lg">Learn More</a>
         </div>
     </section>
 
     <!-- App Section -->
-    <section id="app" class="py-16 bg-gray-200">
+    <section id="app" class="py-20 bg-gray-50">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12">Download Our App</h2>
-            <p class="text-gray-600 mb-6">Configure, control, and connect with our community.</p>
-            <div class="flex justify-center space-x-4">
-                <img src="https://via.placeholder.com/150x150" alt="QR Code App" class="w-32 h-32">
-                <img src="https://via.placeholder.com/150x150" alt="QR Code WeChat" class="w-32 h-32">
+            <h2 class="text-4xl font-bold mb-16 fade-in">Download Our App</h2>
+            <p class="text-gray-600 mb-8">Configure, control, and connect with our community.</p>
+            <div class="flex justify-center space-x-6">
+                <img src="https://via.placeholder.com/150x150?text=App+QR" alt="QR Code App" class="w-40 h-40 shadow-md rounded-lg">
+                <img src="https://via.placeholder.com/150x150?text=WeChat+QR" alt="QR Code WeChat" class="w-40 h-40 shadow-md rounded-lg">
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-900 text-white py-10">
         <div class="container mx-auto text-center">
-            <p>EV Brand Technologies Ltd.</p>
-            <p class="mt-2"><a href="#" class="hover:underline">Privacy Policy</a> | <a href="#" class="hover:underline">Permissions</a></p>
+            <p class="mb-2">EV Brand Technologies Ltd.</p>
+            <p><a href="#" class="hover:underline mx-2">Privacy Policy</a> | <a href="#" class="hover:underline mx-2">Permissions</a></p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // Draggable images
+        const draggables = document.querySelectorAll('.draggable');
+        draggables.forEach(img => {
+            let isDragging = false;
+            let startX, startY, initialLeft, initialTop;
+
+            img.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                initialLeft = img.offsetLeft;
+                initialTop = img.offsetTop;
+                img.style.position = 'relative';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const dx = e.clientX - startX;
+                    const dy = e.clientY - startY;
+                    img.style.left = `${initialLeft + dx}px`;
+                    img.style.top = `${initialTop + dy}px`;
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
             });
         });
     </script>
