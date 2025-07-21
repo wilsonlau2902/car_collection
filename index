@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Vehicle Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">EV Brand</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="text-gray-700 hover:text-blue-600">Home</a></li>
+                <li><a href="#models" class="text-gray-700 hover:text-blue-600">All Models</a></li>
+                <li><a href="#technology" class="text-gray-700 hover:text-blue-600">Core Technology</a></li>
+                <li><a href="#factory" class="text-gray-700 hover:text-blue-600">Factory</a></li>
+                <li><a href="#stores" class="text-gray-700 hover:text-blue-600">Stores</a></li>
+                <li><a href="#services" class="text-gray-700 hover:text-blue-600">Services</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-cover bg-center h-screen" style="background-image: url('https://via.placeholder.com/1920x1080')">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-5xl font-bold mb-4">Drive the Future</h1>
+                <p class="text-xl mb-6">Experience cutting-edge electric vehicles.</p>
+                <a href="#models" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Explore Models</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Models</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/600x400" alt="Model YU7" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold">Model YU7</h3>
+                        <p class="text-gray-600 mt-2">Ride with elegance and power.</p>
+                        <a href="#" class="text-blue-600 hover:underline mt-4 inline-block">Learn More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/600x400" alt="Model SU7 Ultra" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold">Model SU7 Ultra</h3>
+                        <p class="text-gray-600 mt-2">Unleash unmatched performance.</p>
+                        <a href="#" class="text-blue-600 hover:underline mt-4 inline-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-16 bg-gray-200">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Core Technology</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <h4 class="text-xl font-semibold">800V High-Voltage Platform</h4>
+                    <p class="text-gray-600 mt-2">Next-gen power efficiency.</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-xl font-semibold">Super Motor</h4>
+                    <p class="text-gray-600 mt-2">Unprecedented acceleration.</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-xl font-semibold">Smart Cockpit</h4>
+                    <p class="text-gray-600 mt-2">Intelligent driving experience.</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-xl font-semibold">Assisted Driving</h4>
+                    <p class="text-gray-600 mt-2">Advanced safety and autonomy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Factory Section -->
+    <section id="factory" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Factory</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto">Digital-driven advanced manufacturing ensures high-quality production and delivery.</p>
+            <div class="mt-8 text-center">
+                <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section id="app" class="py-16 bg-gray-200">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Download Our App</h2>
+            <p class="text-gray-600 mb-6">Configure, control, and connect with our community.</p>
+            <div class="flex justify-center space-x-4">
+                <img src="https://via.placeholder.com/150x150" alt="QR Code App" class="w-32 h-32">
+                <img src="https://via.placeholder.com/150x150" alt="QR Code WeChat" class="w-32 h-32">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>EV Brand Technologies Ltd.</p>
+            <p class="mt-2"><a href="#" class="hover:underline">Privacy Policy</a> | <a href="#" class="hover:underline">Permissions</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
