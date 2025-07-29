@@ -11,6 +11,16 @@
         .parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
         .draggable { cursor: grab; user-select: none; }
         .model-card:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+        .text-shadow-lg { text-shadow: 0 0 5px rgba(255,255,255,0.3), 0 0 10px rgba(0,112,255,0.5); }
+        .draggable-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        .floating-btn {
+            display: inline-block;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .floating-btn:hover {
+            transform: translate(-5px, -5px);
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans antialiased">
@@ -29,8 +39,6 @@
         </div>
     </nav>
 
-
-
     <!-- Hero Section with Parallax -->
     <section id="home" class="relative parallax h-screen" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9EDjJhcBlJDgN4K-qE_Vo7596iF9c5pQLPg&s')">
         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60 flex items-center justify-center overflow-hidden">
@@ -43,15 +51,13 @@
         <div class="absolute inset-0 draggable-bg" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9EDjJhcBlJDgN4K-qE_Vo7596iF9c5pQLPg&s'); background-size: cover; background-position: center;"></div>
     </section>
 
-    
-
     <!-- Models Section with Hover and Draggable -->
     <section id="models" class="py-20 bg-white">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16 fade-in">Our Models</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="bg-gray-50 rounded-xl shadow-xl overflow-hidden model-card">
-                    <img src="https://www.tesla.com/ownersmanual/images/GUID-B5641257-9E85-404B-9667-4DA5FDF6D2E7-online-en-US.png" alt="Model YU7" class="h-full  object-cover draggable">
+                    <img src="https://www.tesla.com/ownersmanual/images/GUID-B5641257-9E85-404B-9667-4DA5FDF6D2E7-online-en-US.png" alt="Model YU7" class="w-full h-72 object-cover draggable">
                     <div class="p-8">
                         <h3 class="text-3xl font-semibold mb-2">Wilson's Model 3</h3>
                         <p class="text-gray-600 mb-4">Ride with elegance and power.</p>
@@ -59,7 +65,7 @@
                     </div>
                 </div>
                 <div class="bg-gray-50 rounded-xl shadow-xl overflow-hidden model-card">
-                    <img src="https://www.tesla.com/ownersmanual/images/GUID-1F2D8746-336F-4CF9-9A04-F35E960F31FE-online-en-US.png" class="h-full  object-cover draggable">
+                    <img src="https://www.tesla.com/ownersmanual/images/GUID-1F2D8746-336F-4CF9-9A04-F35E960F31FE-online-en-US.png" alt="Model SU7 Ultra" class="w-full h-72 object-cover draggable">
                     <div class="p-8">
                         <h3 class="text-3xl font-semibold mb-2">Wilson's Model Y</h3>
                         <p class="text-gray-600 mb-4">Unleash unmatched performance.</p>
@@ -162,6 +168,42 @@
             document.addEventListener('mouseup', () => {
                 isDragging = false;
             });
+        });
+
+        // Draggable background
+        const draggableBg = document.querySelector('.draggable-bg');
+        let isBgDragging = false;
+        let bgStartX, bgStartY, bgInitialX, bgInitialY;
+
+        draggableBg.addEventListener('mousedown', (e) => {
+            isBgDragging = true;
+            bgStartX = e.clientX;
+            bgStartY = e.clientY;
+            bgInitialX = draggableBg.style.backgroundPositionX ? parseInt(draggableBg.style.backgroundPositionX) : 0;
+            bgInitialY = draggableBg.style.backgroundPositionY ? parseInt(draggableBg.style.backgroundPositionY) : 0;
+            draggableBg.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isBgDragging) {
+                const dx = e.clientX - bgStartX;
+                const dy = e.clientY - bgStartY;
+                draggableBg.style.backgroundPositionX = `${bgInitialX + dx}px`;
+                draggableBg.style.backgroundPositionY = `${bgInitialY + dy}px`;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isBgDragging = false;
+            draggableBg.style.cursor = 'grab';
+        });
+
+        // Floating button movement
+        const btn = document.querySelector('.floating-btn');
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            btn.style.transform = `translate(${x}px, ${y}px) scale(1)`;
         });
     </script>
 </body>
